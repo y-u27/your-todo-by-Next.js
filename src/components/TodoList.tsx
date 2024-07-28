@@ -1,17 +1,20 @@
-import { Box, Button, Flex, ListItem, UnorderedList } from "@chakra-ui/react";
+import { Box, Button, HStack } from "@chakra-ui/react";
 
 const TodoList = () => {
   return (
-    <Flex display="flex" justifyContent="center">
-      <Box display="flex" justifyContent="space-between">TodoList</Box>
-      <Box>
-        <Button mr={2} fontSize="xs">Edit</Button>
-        <Button mr={2} fontSize="xs">Delete</Button>
-      </Box>
-    </Flex>
-    // <UnorderedList listStyleType="none" >
-    //   <ListItem></ListItem>
-    // </UnorderedList>
+    <>
+      <HStack display="flex" justifyContent="center" spacing="24%">
+        <Box>
+          <Box>TodoList</Box>
+        </Box>
+        <Box>
+          <Button mr={2} fontSize="xs">
+            Edit
+          </Button>
+          <Button fontSize="xs">Delete</Button>
+        </Box>
+      </HStack>
+    </>
   );
 };
 
