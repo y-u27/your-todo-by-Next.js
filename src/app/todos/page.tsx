@@ -1,7 +1,10 @@
-import React from "react";
+import InputTodo from "@/components/InputTodo";
+import Image from "next/image";
 
-const TodoPage = () => {
-  return <div>TodoPage</div>
-};
-
-export default TodoPage;
+export default function Home() {
+  return (
+    <>
+      <InputTodo />
+    </>
+  );
+}
