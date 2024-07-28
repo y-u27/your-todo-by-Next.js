@@ -1,11 +1,17 @@
-import { Box } from "@chakra-ui/react";
-import React from "react";
+import { Box, Button, Flex, ListItem, UnorderedList } from "@chakra-ui/react";
 
 const TodoList = () => {
   return (
-    <Box px={10} display="flex" justifyContent="center">
-      TodoList
-    </Box>
+    <Flex display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="space-between">TodoList</Box>
+      <Box>
+        <Button mr={2} fontSize="xs">Edit</Button>
+        <Button mr={2} fontSize="xs">Delete</Button>
+      </Box>
+    </Flex>
+    // <UnorderedList listStyleType="none" >
+    //   <ListItem></ListItem>
+    // </UnorderedList>
   );
 };
 
