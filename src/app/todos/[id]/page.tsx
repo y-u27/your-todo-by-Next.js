@@ -1,7 +1,8 @@
+import TodoArticle from "@/components/TodoArticle";
 import React from "react";
 
 const pageId = () => {
-  return <div>pageId</div>;
+  return <TodoArticle />;
 };
 
 export default pageId;
