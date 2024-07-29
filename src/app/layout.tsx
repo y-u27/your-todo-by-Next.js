@@ -25,6 +25,7 @@ export default function RootLayout({
             h={20}
             size="lg"
             textShadow="1px 1px #0000cd"
+            p={5}
           >
             Your Todo by Next.js
           </Heading>
