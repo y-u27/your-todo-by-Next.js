@@ -28,7 +28,7 @@ const TodoArticle = () => {
         <CardBody>
           <Box>
             <Box borderBottom="1px" borderBottomColor="teal.300">
-              投稿日時：
+              Todoタイトル：
             </Box>
             <br />
             <Box borderBottom="1px" borderBottomColor="teal.300">

@@ -27,8 +27,8 @@ const TodoCreate = () => {
         <Card w="50%" mx="320px" shadow="lg">
           <CardBody>
             <Box>
-              <Box borderBottom="1px" borderBottomColor="teal.300">
-                投稿日時：
+            <Box borderBottom="1px" borderBottomColor="teal.300">
+                Todoタイトル：
               </Box>
               <br />
               <Box borderBottom="1px" borderBottomColor="teal.300">

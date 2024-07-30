@@ -1,4 +1,11 @@
-import { Box, Button, Card, CardBody, FormControl, FormLabel } from "@chakra-ui/react"
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  FormControl,
+  FormLabel,
+} from "@chakra-ui/react";
 
 const TodoEdit = () => {
   return (
@@ -21,11 +28,15 @@ const TodoEdit = () => {
           <CardBody>
             <Box>
               <Box borderBottom="1px" borderBottomColor="teal.300">
-                投稿日時：
+                Todoタイトル：
               </Box>
               <br />
               <Box borderBottom="1px" borderBottomColor="teal.300">
                 Todo内容：
+              </Box>
+              <br />
+              <Box borderBottom="1px" borderBottomColor="teal.300">
+                期限：
               </Box>
               <br />
               <Box borderBottom="1px" borderBottomColor="teal.300">
@@ -44,7 +55,7 @@ const TodoEdit = () => {
         </Card>
       </FormControl>
     </>
-  )
-}
+  );
+};
 
-export default TodoEdit
+export default TodoEdit;
