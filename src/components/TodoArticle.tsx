@@ -1,6 +1,7 @@
 // Todoの一つひとつの詳細（投稿した日時・内容・ステータスなどを表示するページ）
 import {
   Box,
+  Button,
   Card,
   CardBody,
   FormControl,
@@ -21,9 +22,8 @@ const TodoArticle = () => {
         fontSize={16}
         mb={5}
       >
-        Todoの詳細
+        Todo詳細ページ
       </FormLabel>
-      {/* <HStack mr="350px" p="30px"> */}
       <Card w="50%" mx="320px" shadow="lg">
         <CardBody>
           <Box>
@@ -39,9 +39,20 @@ const TodoArticle = () => {
               ステータス：
             </Box>
           </Box>
+          <Box pt={3} display="flex" justifyContent="center">
+            <Button
+              w={16}
+              mr={3}
+              _hover={{ backgroundColor: "#00fa9a", color: "white" }}
+            >
+              編集
+            </Button>
+            <Button _hover={{ backgroundColor: "#dc143c", color: "white" }}>
+              削除
+            </Button>
+          </Box>
         </CardBody>
       </Card>
-      {/* </HStack> */}
     </FormControl>
   );
 };

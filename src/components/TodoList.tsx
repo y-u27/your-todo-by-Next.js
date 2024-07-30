@@ -1,20 +1,16 @@
-import { Box, Button, HStack } from "@chakra-ui/react";
+import { Box, Button, FormControl, Input } from "@chakra-ui/react";
 
 const TodoList = () => {
   return (
-    <>
-      <HStack display="flex" justifyContent="center" spacing="24%">
-        <Box>
-          <Box>TodoList</Box>
-        </Box>
-        <Box>
-          <Button mr={2} fontSize="xs">
-            Edit
-          </Button>
-          <Button fontSize="xs">Delete</Button>
-        </Box>
-      </HStack>
-    </>
+    <Box display="flex" justifyContent="center" p={10}>
+      <Button
+        w={700}
+        bgColor="#b0c4de"
+        _hover={{ backgroundColor: "#4169e1", color: "white" }}
+      >
+        Todo作成
+      </Button>
+    </Box>
   );
 };
 

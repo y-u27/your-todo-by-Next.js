@@ -1,7 +1,9 @@
-import React from "react";
+import TodoEdit from "@/components/TodoEdit";
 
 const editPage = () => {
-  return <div>editPage</div>;
+  return (
+    <TodoEdit />
+  )
 };
 
 export default editPage;

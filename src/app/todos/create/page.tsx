@@ -1,12 +1,9 @@
-import InputTodo from "@/components/InputTodo";
-import TodoList from "@/components/TodoList";
-import React from "react";
+import TodoCreate from "@/components/TodoCreate";
 
 const createPage = () => {
   return (
     <>
-      <InputTodo />
-      <TodoList />
+      <TodoCreate />
     </>
   );
 };
