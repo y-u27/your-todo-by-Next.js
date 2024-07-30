@@ -1,3 +1,5 @@
+// ・TODOタイトル候補
+// ・TODO作成
 import {
   Box,
   Button,
@@ -5,6 +7,8 @@ import {
   CardBody,
   FormControl,
   FormLabel,
+  HStack,
+  Input,
 } from "@chakra-ui/react";
 
 const TodoCreate = () => {
@@ -26,19 +30,17 @@ const TodoCreate = () => {
         </FormLabel>
         <Card w="50%" mx="320px" shadow="lg">
           <CardBody>
-            <Box>
-            <Box borderBottom="1px" borderBottomColor="teal.300">
-                Todoタイトル：
-              </Box>
+            <FormControl>
+              <HStack>
+                <FormLabel>Todoタイトル：</FormLabel>
+                <Input w="70%" h={10} />
+              </HStack>
               <br />
-              <Box borderBottom="1px" borderBottomColor="teal.300">
-                Todo内容：
-              </Box>
-              <br />
-              <Box borderBottom="1px" borderBottomColor="teal.300">
-                ステータス：
-              </Box>
-            </Box>
+              <HStack>
+                <FormLabel>Todo内容：</FormLabel>
+                <Input w="70%" h={10} />
+              </HStack>
+            </FormControl>
             <Box pt={3} display="flex" justifyContent="center">
               <Button
                 w={130}
