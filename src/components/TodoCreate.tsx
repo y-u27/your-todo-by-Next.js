@@ -40,6 +40,11 @@ const TodoCreate = () => {
                 <FormLabel>Todo内容：</FormLabel>
                 <Input w="70%" h={10} />
               </HStack>
+              <br />
+              <HStack>
+                <FormLabel>Todoステータス：</FormLabel>
+                <Input w="70%" h={10} />
+              </HStack>
             </FormControl>
             <Box pt={3} display="flex" justifyContent="center">
               <Button
