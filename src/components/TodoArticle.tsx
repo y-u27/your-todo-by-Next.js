@@ -1,6 +1,10 @@
 // Todoの一つひとつの詳細（投稿した日時・内容・ステータスなどを表示するページ）
 //・TODO削除
 //・コメント投稿機能
+
+// 詳細を表示するだけで良いので、表示ができて入力はできないように実装
+"use client";
+
 import {
   Box,
   Button,
@@ -11,8 +15,21 @@ import {
   HStack,
   Input,
 } from "@chakra-ui/react";
+import { useState } from "react";
+
+interface Todo {
+  title: string;
+  content: string;
+  status: string;
+}
 
 const TodoArticle = () => {
+  const newTodo: Todo = {
+    title: "サンプルTodoタイトル",
+    content: "サンプルTodo内容",
+    status: "未完了",
+  };
+
   return (
     <FormControl padding="100px">
       <FormLabel
@@ -30,22 +47,19 @@ const TodoArticle = () => {
       </FormLabel>
       <Card w="50%" mx="320px" shadow="lg">
         <CardBody>
-        <FormControl>
-              <HStack>
-                <FormLabel>Todoタイトル：</FormLabel>
-                <Input w="70%" h={10} />
-              </HStack>
-              <br />
-              <HStack>
-                <FormLabel>Todo内容：</FormLabel>
-                <Input w="70%" h={10} />
-              </HStack>
-              <br />
-              <HStack>
-                <FormLabel>Todoステータス：</FormLabel>
-                <Input w="70%" h={10} />
-              </HStack>
-            </FormControl>
+          <FormControl>
+            <HStack>
+              <FormLabel>Todoタイトル：{newTodo.title}</FormLabel>
+            </HStack>
+            <br />
+            <HStack>
+              <FormLabel>Todo内容：{newTodo.content}</FormLabel>
+            </HStack>
+            <br />
+            <HStack>
+              <FormLabel>Todoステータス：{newTodo.status}</FormLabel>
+            </HStack>
+          </FormControl>
           <Box pt={3} display="flex" justifyContent="center">
             <Button
               w={16}
