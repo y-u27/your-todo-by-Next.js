@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ChakraProvider, Heading } from "@chakra-ui/react";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,17 +19,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <ChakraProvider>
-          <Heading
-            color="white"
-            bgColor="#afeeee"
-            textAlign="center"
-            h={20}
-            size="lg"
-            textShadow="1px 1px #0000cd"
-            p={5}
-          >
-            Your Todo by Next.js
-          </Heading>
+          <Header />
           {children}
         </ChakraProvider>
       </body>
