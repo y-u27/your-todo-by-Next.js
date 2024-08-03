@@ -7,31 +7,32 @@ import {
   Button,
   Card,
   CardBody,
-  FormControl,
-  FormLabel,
   HStack,
+  Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
-
-interface Todo {
-  id: number;
-  title: string;
-  content: string;
-  status: string;
-}
 
 const TodoList = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
 
-  const createTodo = () => {
-    const newTodo: Todo = {
+  const MOCK_TODOS = [
+    {
       id: 1,
       title: "サンプルTodoタイトル",
       content: "サンプルTodo内容",
-      status: "未完了",
-    };
-    setTodos([...todos, newTodo]);
-  };
+      status: "未完了"
+    },
+    {
+      id: 1,
+      title: "サンプルTodoタイトル",
+      content: "サンプルTodo内容",
+      status: "未完了"
+    },
+    {
+      id: 1,
+      title: "サンプルTodoタイトル",
+      content: "サンプルTodo内容",
+      status: "未完了"
+    }
+  ]
 
   return (
     <>
@@ -40,31 +41,30 @@ const TodoList = () => {
           w={700}
           bgColor="#b0c4de"
           _hover={{ backgroundColor: "#4169e1", color: "white" }}
-          onClick={createTodo}
         >
           Todo作成
         </Button>
       </Box>
-      {todos.map((todo, id) => (
-        <Card key={id} w={700} mx={370} mt={5} shadow="lg">
+      {MOCK_TODOS.map((todo, id) => (
+        <Card key={id} w={700} mx={370} mt={4} shadow="lg">
           <CardBody>
-            <FormControl>
+            <Box>
               <HStack>
-                <FormLabel>Todo番号：{todo.id}</FormLabel>
+                <Text>Todo番号：{todo.id}</Text>
               </HStack>
               <br />
               <HStack>
-                <FormLabel>Todoタイトル：{todo.title}</FormLabel>
+                <Text>Todoタイトル：{todo.title}</Text>
               </HStack>
               <br />
               <HStack>
-                <FormLabel>Todo内容：{todo.content}</FormLabel>
+                <Text>Todo内容：{todo.content}</Text>
               </HStack>
               <br />
               <HStack>
-                <FormLabel>Todoステータス：{todo.status}</FormLabel>
+                <Text>Todoステータス：{todo.status}</Text>
               </HStack>
-            </FormControl>
+            </Box>
           </CardBody>
         </Card>
       ))}

@@ -5,34 +5,30 @@
 // 詳細を表示するだけで良いので、表示ができて入力はできないように実装
 "use client";
 
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  FormControl,
-  FormLabel,
-  HStack,
-  Input,
-} from "@chakra-ui/react";
-import { useState } from "react";
-
-interface Todo {
-  title: string;
-  content: string;
-  status: string;
-}
+import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 
 const TodoArticle = () => {
-  const newTodo: Todo = {
-    title: "サンプルTodoタイトル",
-    content: "サンプルTodo内容",
-    status: "未完了",
-  };
+  interface Todo {
+    id: number;
+    title: string;
+    content: string;
+    status: string;
+  }
+
+  const MOCK_TODOS: Todo[] = [
+    {
+      id: 1,
+      title: "サンプルTodoタイトル",
+      content: "サンプルTodo内容",
+      status: "未完了",
+    },
+  ];
+
+  const todo = MOCK_TODOS[0];
 
   return (
-    <FormControl padding="100px">
-      <FormLabel
+    <Box padding="100px">
+      <Text
         w="50%"
         mx="320px"
         display="flex"
@@ -44,22 +40,26 @@ const TodoArticle = () => {
         mb={5}
       >
         Todo詳細ページ
-      </FormLabel>
+      </Text>
       <Card w="50%" mx="320px" shadow="lg">
         <CardBody>
-          <FormControl>
+          <Box>
             <HStack>
-              <FormLabel>Todoタイトル：{newTodo.title}</FormLabel>
+              <Text>Todo番号：{todo.id}</Text>
             </HStack>
             <br />
             <HStack>
-              <FormLabel>Todo内容：{newTodo.content}</FormLabel>
+              <Text>Todoタイトル：{todo.title}</Text>
             </HStack>
             <br />
             <HStack>
-              <FormLabel>Todoステータス：{newTodo.status}</FormLabel>
+              <Text>Todo内容：{todo.content}</Text>
             </HStack>
-          </FormControl>
+            <br />
+            <HStack>
+              <Text>Todoステータス：{todo.status}</Text>
+            </HStack>
+          </Box>
           <Box pt={3} display="flex" justifyContent="center">
             <Button
               w={16}
@@ -74,7 +74,7 @@ const TodoArticle = () => {
           </Box>
         </CardBody>
       </Card>
-    </FormControl>
+    </Box>
   );
 };
 
