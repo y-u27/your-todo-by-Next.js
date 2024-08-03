@@ -46,7 +46,7 @@ const TodoList = () => {
         </Button>
       </Box>
       {MOCK_TODOS.map((todo, id) => (
-        <Card key={id} w={700} mx={370} mt={4} shadow="lg">
+        <Card key={id} w={700} mx={370} mt={4} mb={4} shadow="lg">
           <CardBody>
             <Box>
               <HStack>
