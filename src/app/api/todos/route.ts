@@ -8,6 +8,19 @@ import prisma from "@/app/lib/prismaClient";
 //   status?: string;
 // };
 
+// 作成する関数
+export async function POST(request) {
+  const { title, content, status } = await request.json();
+
+  const todo = await prisma.post.create({
+    data: {
+      title,
+      content,
+      status,
+    },
+  });
+}
+
 // すべてのTodoを取得
 export async function GET() {
   const todos = await prisma.post.findMany();
@@ -15,7 +28,7 @@ export async function GET() {
   return NextResponse.json(
     {
       sucess: true,
-      message: "List Todo",
+      message: "Todoのデータを取得",
       data: todos,
     },
     {
