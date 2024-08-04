@@ -9,6 +9,7 @@ import prisma from "@/app/lib/prismaClient";
 // };
 
 // 作成する関数
+// 修正する request→request: Request
 export async function POST(request) {
   const { title, content, status } = await request.json();
 
