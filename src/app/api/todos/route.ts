@@ -4,17 +4,10 @@
 import { NextResponse } from "next/server";
 import prisma from "@/app/lib/prismaClient";
 
-// 型定義
-// type TodoRequest = {
-//   title: string;
-//   content: string;
-//   status?: string;
-// };
-
-
 // 一覧を取得
 // すべてのTodoを取得
 export async function GET() {
+  // supabaseのPostテーブルから
   const todos = await prisma.post.findMany();
 
   return NextResponse.json(
