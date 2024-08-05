@@ -15,7 +15,7 @@ export async function GET(request: Request, { params }: { params: Params }) {
 
   const todo = await prisma.post.findUnique({
     where: {
-      id,
+      id: id,
     },
   });
 
