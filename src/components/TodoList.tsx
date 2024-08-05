@@ -1,68 +1,54 @@
 // ・TODO詳細遷移
 // ・フィルター
 // ・ソート
-"use client";
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  HStack,
-  Text,
-} from "@chakra-ui/react";
+import { TodoData } from "@/app/types/types";
+import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
+import Link from "next/link";
 
-const TodoList = () => {
+async function fetchAllTodos(): Promise<TodoData[]> {
+  const res = await fetch(`http://localhost:3000/api/todos`, {
+    cache: "no-store",
+  });
 
-  const MOCK_TODOS = [
-    {
-      id: 1,
-      title: "サンプルTodoタイトル",
-      content: "サンプルTodo内容",
-      status: "未完了"
-    },
-    {
-      id: 1,
-      title: "サンプルTodoタイトル",
-      content: "サンプルTodo内容",
-      status: "未完了"
-    },
-    {
-      id: 1,
-      title: "サンプルTodoタイトル",
-      content: "サンプルTodo内容",
-      status: "未完了"
-    }
-  ]
+  const data = await res.json();
+
+  return data.data;
+}
+
+export default async function TodoList() {
+  const data: TodoData[] = await fetchAllTodos();
 
   return (
     <>
       <Box display="flex" justifyContent="center" p={10}>
-        <Button
-          w={700}
-          bgColor="#b0c4de"
-          _hover={{ backgroundColor: "#4169e1", color: "white" }}
-        >
-          Todo作成
-        </Button>
+        <Link href="/todos/create">
+          <Button
+            w={700}
+            bgColor="#b0c4de"
+            _hover={{ backgroundColor: "#4169e1", color: "white" }}
+          >
+            Todo作成
+          </Button>
+        </Link>
       </Box>
-      {MOCK_TODOS.map((todo, id) => (
+      {data.map((data, id) => (
         <Card key={id} w={700} mx={370} mt={4} mb={4} shadow="lg">
           <CardBody>
             <Box>
               <HStack>
-                <Text>Todo番号：{todo.id}</Text>
+                <Text>Todo番号：{data.id}</Text>
               </HStack>
               <br />
               <HStack>
-                <Text>Todoタイトル：{todo.title}</Text>
+                <Text>Todoタイトル：{data.title}</Text>
               </HStack>
               <br />
               <HStack>
-                <Text>Todo内容：{todo.content}</Text>
+                <Text>Todo内容：{data.content}</Text>
               </HStack>
               <br />
               <HStack>
-                <Text>Todoステータス：{todo.status}</Text>
+                <Text>Todoステータス：{data.status}</Text>
               </HStack>
             </Box>
           </CardBody>
@@ -70,6 +56,4 @@ const TodoList = () => {
       ))}
     </>
   );
-};
-
-export default TodoList;
+}
