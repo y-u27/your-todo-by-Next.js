@@ -11,7 +11,25 @@ import prisma from "@/app/lib/prismaClient";
 //   status?: string;
 // };
 
+<<<<<<< HEAD
 // 一覧を取得
+=======
+// 作成する関数
+// 修正する request→request: Request
+export async function POST(request) {
+  const { title, content, status } = await request.json();
+
+  const todo = await prisma.post.create({
+    data: {
+      title,
+      content,
+      status,
+    },
+  });
+}
+
+// すべてのTodoを取得
+>>>>>>> origin/main
 export async function GET() {
   const todos = await prisma.post.findMany();
 
