@@ -32,7 +32,7 @@ export default async function TodoList() {
         </Link>
       </Box>
       {data.map((data, id) => (
-        <Card key={id} w={700} mx={370} mt={4} mb={4} shadow="lg">
+        <Card key={data.id} w={700} mx={370} mt={4} mb={4} shadow="lg">
           <CardBody>
             <Box>
               <HStack>
