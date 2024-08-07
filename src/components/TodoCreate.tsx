@@ -48,6 +48,7 @@ const TodoCreate = () => {
       duration: 5000,
       isClosable: true,
     });
+    
     await createTodos(
       titleRef.current?.value,
       contentRef.current?.value,
