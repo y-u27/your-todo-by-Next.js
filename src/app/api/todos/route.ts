@@ -12,7 +12,7 @@ export async function GET() {
 
   return NextResponse.json(
     {
-      sucess: true,
+      success: true,
       message: "Todoのデータを取得",
       data: todos,
     },
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
   });
   return NextResponse.json(
     {
-      sccess: true,
+      success: true,
       message: "Todoを正常に作成できました!",
       data: todo,
     },

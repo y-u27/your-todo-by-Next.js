@@ -23,7 +23,7 @@ export async function GET(request: Request, { params }: { params: Params }) {
     //レスポンスJSONを返します
     return NextResponse.json(
       {
-        sucess: true,
+        success: true,
         message: "詳細データメモが見つかりません!",
         data: null,
       },
@@ -36,7 +36,7 @@ export async function GET(request: Request, { params }: { params: Params }) {
   //レスポンスJSONを返します
   return NextResponse.json(
     {
-      sucess: true,
+      success: true,
       message: "詳細Todoデータ",
       data: todo,
     },
@@ -65,7 +65,7 @@ export async function PATCH(request: Request, { params }: { params: Params }) {
 
   return NextResponse.json(
     {
-      sucess: true,
+      success: true,
       message: "Todo更新",
       data: todo,
     },
@@ -87,7 +87,7 @@ export async function DELETE(request: Request, { params }: { params: Params }) {
 
   return NextResponse.json(
     {
-      sucess: true,
+      success: true,
       message: "Todo削除",
     },
     {
