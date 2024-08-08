@@ -24,7 +24,7 @@ export async function GET(request: Request, { params }: { params: Params }) {
     return NextResponse.json(
       {
         success: true,
-        message: "詳細データメモが見つかりません!",
+        message: "Todoが見つかりません!",
         data: null,
       },
       {
