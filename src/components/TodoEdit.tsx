@@ -19,19 +19,18 @@ const editTodos = async (
   content: string | undefined,
   dueDate: number,
   status: string | undefined,
+  id: string
 ) => {
-  const res = await fetch(`http://localhost:3000/api/todos`, {
+  const res = await fetch(`http://localhost:3000/api/todos/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ title, content, status, dueDate }),
+    body: JSON.stringify({ title, content, status, dueDate, id }),
   });
-
-  return res.json();
 };
 
-const TodoEdit = () => {
+const TodoEdit = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
   const toast = useToast();
   const titleRef = useRef<HTMLInputElement | null>(null);
@@ -59,6 +58,7 @@ const TodoEdit = () => {
       contentRef.current?.value,
       dueDate,
       statusRef.current?.value,
+      params.id
     );
 
     router.push("/todos");
