@@ -21,7 +21,7 @@ const editTodos = async (
   status: string | undefined,
   id: number
 ) => {
-  const res = await fetch(`http://localhost:3000/api/todos/${id}`, {
+  const res = await fetch(`http://localhost:3000/api/todos/${id}/edit`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
