@@ -58,16 +58,16 @@ const TodoArticle = () => {
             <HStack>
               <Text>Todoステータス：{todo.status}</Text>
             </HStack>
-            {/* <Link href="/todos/${id}/edit"> */}
             <Box pt={3} display="flex" justifyContent="center">
-              <Button
-                w={16}
-                mr={3}
-                _hover={{ backgroundColor: "#00fa9a", color: "white" }}
-              >
-                編集
-              </Button>
-              {/* </Link> */}
+              <Link href="/todos/${id}/edit">
+                <Button
+                  w={16}
+                  mr={3}
+                  _hover={{ backgroundColor: "#00fa9a", color: "white" }}
+                >
+                  編集
+                </Button>
+              </Link>
               <Button _hover={{ backgroundColor: "#dc143c", color: "white" }}>
                 削除
               </Button>
