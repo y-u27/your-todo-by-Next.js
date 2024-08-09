@@ -1,8 +1,6 @@
 // 一つひとつの詳細（タイトル・内容・期限・ステータスなどを表示するページ）
 //・TODO削除
 //・コメント投稿機能
-
-// 詳細を表示するだけで良いので、表示ができて入力はできないように実装
 "use client";
 
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
