@@ -14,6 +14,10 @@ import {
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
+interface paramsProps {
+  id: number;
+}
+
 const editTodos = async (
   title: string | undefined,
   content: string | undefined,
@@ -26,11 +30,11 @@ const editTodos = async (
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ title, content, status, dueDate, id }),
+    body: JSON.stringify({ title, content, status, dueDate }),
   });
 };
 
-const TodoEdit = ({ params }: { params: { id: number } }) => {
+const TodoEdit = ({ id }: paramsProps) => {
   const router = useRouter();
   const toast = useToast();
   const titleRef = useRef<HTMLInputElement | null>(null);
@@ -58,7 +62,7 @@ const TodoEdit = ({ params }: { params: { id: number } }) => {
       contentRef.current?.value,
       dueDate,
       statusRef.current?.value,
-      params.id
+      id
     );
 
     router.push("/todos");
