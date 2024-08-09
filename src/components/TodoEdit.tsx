@@ -19,7 +19,7 @@ const editTodos = async (
   content: string | undefined,
   dueDate: number,
   status: string | undefined,
-  id: string
+  id: number
 ) => {
   const res = await fetch(`http://localhost:3000/api/todos/${id}`, {
     method: "PATCH",
@@ -30,7 +30,7 @@ const editTodos = async (
   });
 };
 
-const TodoEdit = ({ params }: { params: { id: string } }) => {
+const TodoEdit = ({ params }: { params: { id: number } }) => {
   const router = useRouter();
   const toast = useToast();
   const titleRef = useRef<HTMLInputElement | null>(null);
