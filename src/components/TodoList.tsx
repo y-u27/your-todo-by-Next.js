@@ -11,7 +11,6 @@ async function fetchAllTodos(): Promise<TodoData[]> {
   });
 
   const data = await res.json();
-
   return data.data;
 }
 

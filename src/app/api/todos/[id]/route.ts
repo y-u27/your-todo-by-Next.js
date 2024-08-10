@@ -11,12 +11,11 @@ interface Params {
 
 // 特定のtodoを取得
 export async function GET(request: Request, { params }: { params: Params }) {
+  // ↓string型のidをparseIntで整数のnumber型に変換
   const id = parseInt(params.id);
 
   const todo = await prisma.post.findUnique({
-    where: {
-      id: id,
-    },
+    where: { id },
   });
 
   if (!todo) {

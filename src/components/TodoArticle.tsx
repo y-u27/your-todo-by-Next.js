@@ -6,25 +6,20 @@
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
+// interface paramsProps {
+//   id: number;
+// }
+
+// async function getTodos(id: number) {
+//   const res = await fetch(`http://localhost:3000/api/todos/${id}`, {
+//     cache: "no-store",
+//   });
+
+//   const data = await res.json();
+//   return data.data;
+// }
+
 const TodoArticle = () => {
-  interface Todo {
-    id: number;
-    title: string;
-    content: string;
-    status: string;
-  }
-
-  const MOCK_TODOS: Todo[] = [
-    {
-      id: 1,
-      title: "サンプルTodoタイトル",
-      content: "サンプルTodo内容",
-      status: "未完了",
-    },
-  ];
-
-  const todo = MOCK_TODOS[0];
-
   return (
     <Box padding="100px">
       <Text
@@ -44,19 +39,19 @@ const TodoArticle = () => {
         <CardBody>
           <Box>
             <HStack>
-              <Text>Todo番号：{todo.id}</Text>
+              <Text>Todo番号：</Text>
             </HStack>
             <br />
             <HStack>
-              <Text>Todoタイトル：{todo.title}</Text>
+              <Text>Todoタイトル：</Text>
             </HStack>
             <br />
             <HStack>
-              <Text>Todo内容：{todo.content}</Text>
+              <Text>Todo内容：</Text>
             </HStack>
             <br />
             <HStack>
-              <Text>Todoステータス：{todo.status}</Text>
+              <Text>Todoステータス：</Text>
             </HStack>
             <Box pt={3} display="flex" justifyContent="center">
               <Link href="/todos/${id}/edit">

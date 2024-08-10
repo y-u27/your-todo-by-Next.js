@@ -21,7 +21,6 @@ interface paramsProps {
 const editTodos = async (
   title: string | undefined,
   content: string | undefined,
-  dueDate: number,
   status: string | undefined,
   id: number
 ) => {
@@ -30,9 +29,9 @@ const editTodos = async (
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ title, content, status, dueDate }),
+    body: JSON.stringify({ title, content, status }),
   });
-};
+}
 
 const TodoEdit = ({ id }: paramsProps) => {
   const router = useRouter();
@@ -40,14 +39,9 @@ const TodoEdit = ({ id }: paramsProps) => {
   const titleRef = useRef<HTMLInputElement | null>(null);
   const contentRef = useRef<HTMLInputElement | null>(null);
   const statusRef = useRef<HTMLSelectElement | null>(null);
-  const dueDateRef = useRef<HTMLInputElement | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const dueDate = dueDateRef.current
-      ? new Date(dueDateRef.current.value).getTime()
-      : 0;
 
     toast({
       title: "Todo更新",
@@ -60,7 +54,6 @@ const TodoEdit = ({ id }: paramsProps) => {
     await editTodos(
       titleRef.current?.value,
       contentRef.current?.value,
-      dueDate,
       statusRef.current?.value,
       id
     );
@@ -96,18 +89,6 @@ const TodoEdit = ({ id }: paramsProps) => {
               <HStack>
                 <Text>Todo内容：</Text>
                 <Input w="70%" h={10} ref={contentRef} />
-              </HStack>
-              <br />
-              <HStack>
-                <Text>期限：</Text>
-                <Input
-                  w="70%"
-                  h={10}
-                  placeholder="Select Date and Time"
-                  size="md"
-                  type="datetime-local"
-                  ref={dueDateRef}
-                />
               </HStack>
               <br />
               <HStack>
