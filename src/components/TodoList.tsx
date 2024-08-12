@@ -1,6 +1,7 @@
 // ・TODO詳細遷移
 // ・フィルター
 // ・ソート
+
 import { TodoData } from "@/app/types/types";
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
@@ -34,7 +35,7 @@ export default async function TodoList() {
           </Button>
         </Link>
       </Box>
-      <Link href="/todos/edit">
+      <Link href="/todos/${id}">
         {data.map((data) => (
           <Card key={data.id} w={700} mx={370} mt={4} mb={4} shadow="lg">
             <CardBody>
@@ -45,10 +46,6 @@ export default async function TodoList() {
                 <br />
                 <HStack>
                   <Text>Todoタイトル：{data.title}</Text>
-                </HStack>
-                <br />
-                <HStack>
-                  <Text>Todo内容：{data.content}</Text>
                 </HStack>
                 <br />
                 <HStack>

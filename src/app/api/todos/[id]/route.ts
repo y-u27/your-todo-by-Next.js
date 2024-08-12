@@ -1,5 +1,5 @@
 // GET→〜/api/todos/[id]：特定のtodoを取得する
-// PATCH→〜/api/todos/[id]：特定のtodoを更新す
+// PATCH→〜/api/todos/[id]：特定のtodoを更新する
 // DELETE→〜/api/todos/[id]：特定のtodoを削除する
 
 import { NextResponse } from "next/server";

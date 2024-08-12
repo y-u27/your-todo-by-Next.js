@@ -1,7 +1,10 @@
 // 一つひとつの詳細（タイトル・内容・期限・ステータスなどを表示するページ）
 //・TODO削除
 //・コメント投稿機能
-"use client";
+// 一覧画面から詳細画面に遷移する
+// 詳細画面URLからtodoのidを取得する
+// idを元に/api/todos/{id}からtodoの詳細情報を取得する
+// 3で取得したtodoの詳細情報を詳細画面に表示する
 
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
@@ -11,15 +14,15 @@ import Link from "next/link";
 // }
 
 // async function getTodos(id: number) {
-//   const res = await fetch(`http://localhost:3000/api/todos/${id}`, {
-//     cache: "no-store",
-//   });
+//   const res = await fetch(`http://localhost:3000/api/todos/${id}`);
 
 //   const data = await res.json();
 //   return data.data;
 // }
 
-const TodoArticle = () => {
+const TodoArticle =  () => {
+  // const data: paramsProps = await getTodos(id);
+
   return (
     <Box padding="100px">
       <Text
