@@ -15,7 +15,7 @@ async function fetchAllTodos(): Promise<TodoData[]> {
   return data.data;
 }
 
-export default async function TodoList() {
+export default async function TodoList({ id }: TodoData) {
   const data: TodoData[] = await fetchAllTodos();
 
   return (
@@ -35,7 +35,7 @@ export default async function TodoList() {
           </Button>
         </Link>
       </Box>
-      <Link href="/todos/${id}">
+      <Link href={`/todos/${id}`}>
         {data.map((data) => (
           <Card key={data.id} w={700} mx={370} mt={4} mb={4} shadow="lg">
             <CardBody>
