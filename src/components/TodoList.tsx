@@ -15,7 +15,11 @@ async function fetchAllTodos(): Promise<TodoData[]> {
   return data.data;
 }
 
-export default async function TodoList({ id }: TodoData) {
+interface paramsProps {
+  id: number;
+}
+
+export default async function TodoList({ id }: paramsProps) {
   const data: TodoData[] = await fetchAllTodos();
 
   return (
