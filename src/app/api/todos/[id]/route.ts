@@ -22,7 +22,7 @@ export async function GET(request: Request, { params }: { params: Params }) {
     //レスポンスJSONを返します
     return NextResponse.json(
       {
-        success: true,
+        success: false,
         message: "Todoが見つかりません!",
         data: null,
       },
@@ -88,6 +88,7 @@ export async function DELETE(request: Request, { params }: { params: Params }) {
     {
       success: true,
       message: "Todo削除",
+      data: null,
     },
     {
       status: 200,
