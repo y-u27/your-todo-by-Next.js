@@ -19,7 +19,6 @@ import Link from "next/link";
 
 const TodoArticle = ({ id }: Article) => {
   // const data: paramsProps = await getTodos(id);
-  console.log("ID in TodoArticle:", id);
 
   return (
     <Box padding="100px">
