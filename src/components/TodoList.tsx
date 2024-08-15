@@ -39,9 +39,9 @@ export default async function TodoList({ id }: paramsProps) {
           </Button>
         </Link>
       </Box>
-      <Link href={`/todos/${id}`}>
-        {data.map((data) => (
-          <Card key={data.id} w={700} mx={370} mt={4} mb={4} shadow="lg">
+      {data.map((data) => (
+        <Link key={data.id} href={`/todos/${data.id}`}>
+          <Card w={700} mx={370} mt={4} mb={4} shadow="lg">
             <CardBody>
               <Box>
                 <HStack>
@@ -58,8 +58,8 @@ export default async function TodoList({ id }: paramsProps) {
               </Box>
             </CardBody>
           </Card>
-        ))}
-      </Link>
+        </Link>
+      ))}
     </>
   );
 }
