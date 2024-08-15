@@ -5,3 +5,4 @@ export interface TodoData {
   status: string;
 }
 
+export type Article = Pick<TodoData, "id">;
