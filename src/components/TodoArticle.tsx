@@ -6,7 +6,7 @@
 // idを元に/api/todos/{id}からtodoの詳細情報を取得する
 // 3で取得したtodoの詳細情報を詳細画面に表示する
 
-import { TodoData } from "@/app/types/types";
+import { Article } from "@/app/types/types";
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
@@ -17,8 +17,9 @@ import Link from "next/link";
 //   return data.data;
 // }
 
-const TodoArticle = ({ id }: TodoData) => {
+const TodoArticle = ({ id }: Article) => {
   // const data: paramsProps = await getTodos(id);
+  console.log("ID in TodoArticle:", id);
 
   return (
     <Box padding="100px">
