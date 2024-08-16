@@ -1,11 +1,10 @@
-import { Article } from "@/app/types/types";
 import TodoArticle from "@/components/TodoArticle";
 
-const pageId = ({ id }: Article) => {
+const pageId = ({ params }: { params: { id: number } }) => {
   
   return (
     <>
-      <TodoArticle id={id} />
+      <TodoArticle id={params.id} />
     </>
   );
 };
