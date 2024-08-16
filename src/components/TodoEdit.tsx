@@ -31,7 +31,7 @@ const editTodos = async (
     },
     body: JSON.stringify({ title, content, status }),
   });
-}
+};
 
 const TodoEdit = ({ id }: paramsProps) => {
   const router = useRouter();
