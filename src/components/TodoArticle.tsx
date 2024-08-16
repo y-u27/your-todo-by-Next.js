@@ -5,20 +5,60 @@
 // 詳細画面URLからtodoのidを取得する
 // idを元に/api/todos/{id}からtodoの詳細情報を取得する
 // 3で取得したtodoの詳細情報を詳細画面に表示する
+"use client";
 
-import { Article } from "@/app/types/types";
-import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
+import { Article, TodoData } from "@/app/types/types";
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  HStack,
+  Text,
+  Toast,
+  useToast,
+} from "@chakra-ui/react";
 import Link from "next/link";
-
-// async function getTodos(id: number) {
-//   const res = await fetch(`http://localhost:3000/api/todos/${id}`);
-
-//   const data = await res.json();
-//   return data.data;
-// }
+import { useRouter } from "next/navigation";
 
 const TodoArticle = ({ id }: Article) => {
-  // const data: paramsProps = await getTodos(id);
+  const router = useRouter();
+  const toast = useToast();
+
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Todo削除",
+          description: "Todoを削除しました!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        router.push("/todos");
+        router.refresh();
+      } else {
+        toast({
+          title: "Todo削除不可",
+          description: "Todoを削除できませんでした",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "エラー発生",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <Box padding="100px">
@@ -63,7 +103,10 @@ const TodoArticle = ({ id }: Article) => {
                   編集
                 </Button>
               </Link>
-              <Button _hover={{ backgroundColor: "#dc143c", color: "white" }}>
+              <Button
+                _hover={{ backgroundColor: "#dc143c", color: "white" }}
+                onClick={handleDelete}
+              >
                 削除
               </Button>
             </Box>
