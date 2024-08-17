@@ -1,5 +1,6 @@
 //・TODO編集
 "use client";
+import { TodoData } from "@/app/types/types";
 import {
   Box,
   Button,
@@ -82,7 +83,7 @@ const TodoEdit = ({ id }: paramsProps) => {
           <CardBody>
             <Box>
               <HStack>
-                <Text>Todoタイトル：あ</Text>
+                <Text>Todoタイトル：</Text>
                 <Input w="70%" h={10} ref={titleRef} />
               </HStack>
               <br />
