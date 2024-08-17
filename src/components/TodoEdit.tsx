@@ -82,7 +82,7 @@ const TodoEdit = ({ id }: paramsProps) => {
           <CardBody>
             <Box>
               <HStack>
-                <Text>Todoタイトル：</Text>
+                <Text>Todoタイトル：あ</Text>
                 <Input w="70%" h={10} ref={titleRef} />
               </HStack>
               <br />
