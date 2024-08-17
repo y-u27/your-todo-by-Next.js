@@ -7,7 +7,7 @@
 // 3で取得したtodoの詳細情報を詳細画面に表示する
 "use client";
 
-import { Article, TodoData } from "@/app/types/types";
+import { Article } from "@/app/types/types";
 import {
   Box,
   Button,
