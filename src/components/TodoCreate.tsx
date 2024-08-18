@@ -15,8 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
-import { todoState } from "@/atom/todoState";
-import { useRecoilValue } from "recoil";
 
 const createTodos = async (
   title: string | undefined,
@@ -40,7 +38,6 @@ const TodoCreate = () => {
   const contentRef = useRef<HTMLInputElement | null>(null);
   const statusRef = useRef<HTMLSelectElement | null>(null);
   const toast = useToast();
-  const todoItem = useRecoilValue(todoState);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -4,10 +4,10 @@
 // "use client"
 
 import { TodoData } from "@/app/types/types";
-import { todoState } from "@/atom/todoState";
+// import { todoState } from "@/atom/todoState";
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRecoilValue } from "recoil";
+// import { useRecoilValue } from "recoil";
 
 async function fetchAllTodos(): Promise<TodoData[]> {
   const res = await fetch(`http://localhost:3000/api/todos`, {
