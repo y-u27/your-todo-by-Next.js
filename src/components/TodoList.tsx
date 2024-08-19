@@ -1,29 +1,27 @@
 // ・TODO詳細遷移
 // ・フィルター
 // ・ソート
-// "use client"
+"use client";
 
 import { TodoData } from "@/app/types/types";
-// import { todoState } from "@/atom/todoState";
+import { todoState } from "@/atom/todoState";
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
-// import { useRecoilValue } from "recoil";
-
-async function fetchAllTodos(): Promise<TodoData[]> {
-  const res = await fetch(`http://localhost:3000/api/todos`, {
-    cache: "no-store",
-  });
-
-  const data = await res.json();
-  return data.data;
-}
+import { useEffect } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 interface paramsProps {
   id: number;
+  todos: TodoData[];
 }
 
-export default async function TodoList({ id }: paramsProps) {
-  const data: TodoData[] = await fetchAllTodos();
+export default function TodoList({ id, todos }: paramsProps) {
+  const setTodos = useSetRecoilState(todoState);
+  const data = useRecoilValue(todoState);
+
+  useEffect(() => {
+    setTodos(todos);
+  }, [todos, setTodos]);
 
   return (
     <>
