@@ -9,6 +9,7 @@ import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 // import { useRecoilValue } from "recoil";
 
+// ↓この非同期処理を親コンポーネントに記述する
 async function fetchAllTodos(): Promise<TodoData[]> {
   const res = await fetch(`http://localhost:3000/api/todos`, {
     cache: "no-store",
