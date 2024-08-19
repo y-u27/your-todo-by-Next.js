@@ -7,22 +7,8 @@ import { TodoData } from "@/app/types/types";
 import { todoState } from "@/atom/todoState";
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
-<<<<<<< HEAD
 import { useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-=======
-// import { useRecoilValue } from "recoil";
-
-// ↓この非同期処理を親コンポーネントに記述する
-async function fetchAllTodos(): Promise<TodoData[]> {
-  const res = await fetch(`http://localhost:3000/api/todos`, {
-    cache: "no-store",
-  });
-
-  const data = await res.json();
-  return data.data;
-}
->>>>>>> origin/main
 
 interface paramsProps {
   id: number;
