@@ -7,7 +7,7 @@
 // 3で取得したtodoの詳細情報を詳細画面に表示する
 "use client";
 
-import { Article } from "@/app/types/types";
+import { todoState } from "@/atom/todoState";
 import {
   Box,
   Button,
@@ -20,10 +20,24 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { TodoData } from "@/app/types/types";
 
-const TodoArticle = ({ id }: Article) => {
+export interface paramsProps {
+  id: number;
+  todos: TodoData[];
+}
+
+const TodoArticle = ({ id, todos }: TodoData & paramsProps) => {
   const router = useRouter();
   const toast = useToast();
+  const setTodos = useSetRecoilState(todoState);
+  const data = useRecoilValue(todoState);
+
+  useEffect(() => {
+    setTodos(todos);
+  }, [todos, setTodos]);
 
   const handleDelete = async () => {
     try {
