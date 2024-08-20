@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
-interface paramsProps {
+export interface paramsProps {
   id: number;
   todos: TodoData[];
 }
