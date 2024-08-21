@@ -8,7 +8,7 @@ import { todoState } from "@/atom/todoState";
 import { Box, Button, Card, CardBody, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 
 export interface paramsProps {
   id: number;
@@ -16,8 +16,7 @@ export interface paramsProps {
 }
 
 export default function TodoList({ id, todos }: paramsProps) {
-  const setTodos = useSetRecoilState(todoState);
-  const data = useRecoilValue(todoState);
+  const [todosState, setTodos] = useRecoilState(todoState);
 
   useEffect(() => {
     setTodos(todos);
@@ -40,21 +39,21 @@ export default function TodoList({ id, todos }: paramsProps) {
           </Button>
         </Link>
       </Box>
-      {data.map((data) => (
-        <Link key={data.id} href={`/todos/${data.id}`}>
+      {todosState.map((todo) => (
+        <Link key={todo.id} href={`/todos/${todo.id}`} onClick={() => setTodos([todo])}>
           <Card w={700} mx={370} mt={4} mb={4} shadow="lg">
             <CardBody>
               <Box>
                 <HStack>
-                  <Text>Todo番号：{data.id}</Text>
+                  <Text>Todo番号：{todo.id}</Text>
                 </HStack>
                 <br />
                 <HStack>
-                  <Text>Todoタイトル：{data.title}</Text>
+                  <Text>Todoタイトル：{todo.title}</Text>
                 </HStack>
                 <br />
                 <HStack>
-                  <Text>Todoステータス：{data.status}</Text>
+                  <Text>Todoステータス：{todo.status}</Text>
                 </HStack>
               </Box>
             </CardBody>
