@@ -112,15 +112,15 @@ const TodoArticle = ({ id }: paramsProps) => {
             </HStack>
             <br />
             <HStack>
-              <Text>Todoタイトル：</Text>
+              <Text>Todoタイトル：{todosArticles.title}</Text>
             </HStack>
             <br />
             <HStack>
-              <Text>Todo内容：</Text>
+              <Text>Todo内容：{todosArticles.content}</Text>
             </HStack>
             <br />
             <HStack>
-              <Text>Todoステータス：</Text>
+              <Text>Todoステータス：{todosArticles.status}</Text>
             </HStack>
             <Box pt={3} display="flex" justifyContent="center">
               <Link href={`/todos/${id}/edit`}>
