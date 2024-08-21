@@ -7,6 +7,7 @@
 // 3で取得したtodoの詳細情報を詳細画面に表示する
 "use client";
 
+import { TodoData } from "@/app/types/types";
 import { todoState } from "@/atom/todoState";
 import {
   Box,
@@ -20,24 +21,38 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { TodoData } from "@/app/types/types";
+import { useRecoilValue } from "recoil";
 
 export interface paramsProps {
   id: number;
-  todos: TodoData[];
 }
 
-const TodoArticle = ({ id, todos }: TodoData & paramsProps) => {
+const TodoArticle = ({ id }: paramsProps) => {
   const router = useRouter();
   const toast = useToast();
-  const setTodos = useSetRecoilState(todoState);
-  const data = useRecoilValue(todoState);
+  const todosArticle: TodoData[] | undefined = useRecoilValue(todoState);
 
-  useEffect(() => {
-    setTodos(todos);
-  }, [todos, setTodos]);
+  const todosArticles = todosArticle?.find((todo) => todo.id === id);
+
+  if (!todosArticles) {
+    return (
+      <Box padding="100px">
+        <Text
+          w="50%"
+          mx="320px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          bgColor="red.200"
+          color="white"
+          fontSize={16}
+          mb={5}
+        >
+          Todoが見つかりませんでした。
+        </Text>
+      </Box>
+    );
+  }
 
   const handleDelete = async () => {
     try {
@@ -93,7 +108,7 @@ const TodoArticle = ({ id, todos }: TodoData & paramsProps) => {
         <CardBody>
           <Box>
             <HStack>
-              <Text>Todo番号：</Text>
+              <Text>Todo番号：{todosArticles.id}</Text>
             </HStack>
             <br />
             <HStack>
