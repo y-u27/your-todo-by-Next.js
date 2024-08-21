@@ -1,9 +1,9 @@
 import TodoArticle from "@/components/TodoArticle";
 
-const pageId = ({ params }: { params: { id: number } }) => {
+const pageId = ({ params }: { params: { id: string } }) => {
   return (
     <>
-      <TodoArticle id={params.id} />
+      <TodoArticle id={Number(params.id)} />
     </>
   );
 };
