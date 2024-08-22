@@ -1,8 +1,8 @@
 import TodoEdit from "@/components/TodoEdit";
 
-const editPage = ({ params }: { params: { id: number } }) => {
+const editPage = ({ params }: { params: { id: string } }) => {
   return (
-    <TodoEdit id={params.id} />
+    <TodoEdit id={Number(params.id)} />
   )
 };
 
