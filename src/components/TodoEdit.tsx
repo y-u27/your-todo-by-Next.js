@@ -1,6 +1,7 @@
 //・TODO編集
 "use client";
 import { TodoData } from "@/app/types/types";
+import { todoState } from "@/atom/todoState";
 import {
   Box,
   Button,
@@ -14,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
+import { useRecoilValue } from "recoil";
 
 interface paramsProps {
   id: number;
@@ -40,6 +42,29 @@ const TodoEdit = ({ id }: paramsProps) => {
   const titleRef = useRef<HTMLInputElement | null>(null);
   const contentRef = useRef<HTMLInputElement | null>(null);
   const statusRef = useRef<HTMLSelectElement | null>(null);
+
+  const todosArticle: TodoData[] | undefined = useRecoilValue(todoState);
+  const todosArticles = todosArticle?.find((todo) => todo.id === id);
+
+  if (!todosArticles) {
+    return (
+      <Box padding="100px">
+        <Text
+          w="50%"
+          mx="320px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          bgColor="red.200"
+          color="white"
+          fontSize={16}
+          mb={5}
+        >
+          Todoが見つかりませんでした。
+        </Text>
+      </Box>
+    );
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
