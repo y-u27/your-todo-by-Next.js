@@ -1,11 +1,15 @@
-import Login from "@/components/Login";
+"use client"
 
-const loginPage = () => {
+import LoginPage from "@/components/Login";
+import { SessionProvider } from "next-auth/react";
+import React from "react";
+
+const authPage = () => {
   return (
-    <div>
-      <Login />
-    </div>
+    <SessionProvider>
+      <LoginPage />
+    </SessionProvider>
   );
 };
 
-export default loginPage;
+export default authPage;
