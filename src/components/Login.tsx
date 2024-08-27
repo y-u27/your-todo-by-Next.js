@@ -22,7 +22,24 @@ const LoginPage = () => {
     }
   };
 
-  return <Button onClick={handleLogin("google")}>Googleでログイン</Button>;
+  return (
+    <>
+      <Box display="flex" justifyContent="center" p={250}>
+        <Button
+          w={200}
+          bgColor="#b0c4de"
+          _hover={{
+            backgroundColor: "#4169e1",
+            color: "white",
+          }}
+          _active={{ transform: "scale(0.85)", opacity: 0.1 }}
+          onClick={handleLogin("google")}
+        >
+          Googleでログイン
+        </Button>
+      </Box>
+    </>
+  );
 };
 
 export default LoginPage;
