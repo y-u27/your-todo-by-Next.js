@@ -9,7 +9,7 @@ const LoginPage = () => {
   const { data: session, status } = useSession();
   useEffect(() => {
     if (status === "authenticated") {
-      redirect("/");
+      redirect("/todos");
     }
   }, [session, status]);
 
@@ -18,7 +18,7 @@ const LoginPage = () => {
     const result = await signIn(provider);
 
     if (result) {
-      redirect("/");
+      redirect("/todos");
     }
   };
 
