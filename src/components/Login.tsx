@@ -5,7 +5,7 @@ import { signIn, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import React, { useEffect } from "react";
 
-const LoginPage = () => {
+const Login = () => {
   const { data: session, status } = useSession();
   useEffect(() => {
     if (status === "authenticated") {
@@ -42,4 +42,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
