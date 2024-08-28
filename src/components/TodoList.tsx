@@ -35,9 +35,7 @@ export default function TodoList({ id, todos }: paramsProps) {
     <>
       {status === "authenticated" ? (
         <Box>
-          {/* <Box pb="20%"> */}
-            <Button onClick={handleLogout}>ログアウト</Button>
-          {/* </Box> */}
+          <Button onClick={handleLogout}>ログアウト</Button>
           <Box display="flex" justifyContent="center" p={10}>
             <Link href="/todos/create">
               <Button
