@@ -56,7 +56,7 @@ const TodoArticle = ({ id }: paramsProps) => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
+      const response = await fetch(`https://your-todo-by-next-js.vercel.app/api/todos/${id}`, {
         method: "DELETE",
       });
 

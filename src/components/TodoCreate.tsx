@@ -21,7 +21,7 @@ const createTodos = async (
   content: string | undefined,
   status: string | undefined
 ) => {
-  const res = await fetch(`http://localhost:3000/api/todos`, {
+  const res = await fetch(`https://your-todo-by-next-js.vercel.app/api/todos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

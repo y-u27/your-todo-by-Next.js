@@ -2,7 +2,7 @@ import TodoList from "@/components/TodoList";
 import { TodoData } from "../types/types";
 
 async function fetchAllTodos(): Promise<TodoData[]> {
-  const res = await fetch(`http://localhost:3000/api/todos`, {
+  const res = await fetch(`https://your-todo-by-next-js.vercel.app/api/todos`, {
     cache: "no-store",
   });
 
