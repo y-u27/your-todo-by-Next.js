@@ -1,13 +1,13 @@
 "use client";
 
-import LoginPage from "@/components/Login";
-import { SessionProvider } from "next-auth/react";
+import Login from "@/components/Login";
+import { Box } from "@chakra-ui/react";
 
 const authPage = () => {
   return (
-    <SessionProvider>
-      <LoginPage />
-    </SessionProvider>
+    <Box>
+      <Login />
+    </Box>
   );
 };
 
