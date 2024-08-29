@@ -16,7 +16,6 @@ import {
   CardBody,
   HStack,
   Text,
-  Toast,
   useToast,
 } from "@chakra-ui/react";
 import Link from "next/link";
@@ -56,9 +55,12 @@ const TodoArticle = ({ id }: paramsProps) => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`https://your-todo-by-next-js.vercel.app/api/todos/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://your-todo-by-next-js.vercel.app/api/todos/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
         toast({
