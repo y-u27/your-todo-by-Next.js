@@ -29,7 +29,7 @@ const Login = () => {
           w={200}
           bgColor="#b0c4de"
           _hover={{
-            backgroundColor: "#f5deb3",
+            backgroundColor: "#66cdaa",
             color: "white",
           }}
           _active={{ transform: "scale(0.85)", opacity: 0.1 }}
