@@ -35,7 +35,7 @@ const Login = () => {
           _active={{ transform: "scale(0.85)", opacity: 0.1 }}
           onClick={handleLogin("google")}
         >
-          Googleでログイン
+          Googleログイン
         </Button>
       </Box>
     </>
