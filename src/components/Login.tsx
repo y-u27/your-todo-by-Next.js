@@ -30,7 +30,7 @@ const Login = () => {
           bgColor="#b0c4de"
           _hover={{
             backgroundColor: "#66cdaa",
-            color: "yellow",
+            color: "#ff7f50",
           }}
           _active={{ transform: "scale(0.85)", opacity: 0.1 }}
           onClick={handleLogin("google")}
